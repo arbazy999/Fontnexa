@@ -477,17 +477,17 @@ feedbackForm.addEventListener('submit', async (event) => {
   feedbackSubmitButton.textContent = 'Sending…';
 
   try {
-    const response = await fetch('/', {
+    const response = await fetch(feedbackForm.action, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: new URLSearchParams(formData).toString()
+      headers: { 'Accept': 'application/json' },
+      body: formData
     });
 
     if (!response.ok) throw new Error('Submission failed');
     formStatus.textContent = `Thank you, ${visitorName}! Your feedback has been sent.`;
     feedbackForm.reset();
   } catch {
-    formStatus.textContent = 'Your feedback could not be sent right now. Please try again after the site is deployed on Netlify.';
+    formStatus.textContent = 'Your feedback could not be sent right now. Please check your connection and try again.';
     formStatus.classList.add('is-error');
   } finally {
     feedbackSubmitButton.disabled = false;
