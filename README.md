@@ -1,6 +1,6 @@
 # Fontnexa
 
-Fontnexa is a responsive Unicode text generator and personal portfolio project by Arbaz Ali. Visitors can enter text, browse category-based styles, copy a result, and send feedback after the site is deployed on Netlify.
+Fontnexa is a responsive Unicode text generator and personal portfolio project by Arbaz Ali. Visitors can enter text, browse category-based styles, copy a result, and send feedback through Formspree while the website stays hosted on GitHub Pages.
 
 ## Features
 
@@ -12,7 +12,7 @@ Fontnexa is a responsive Unicode text generator and personal portfolio project b
 - Creator profile and portfolio sections with skills, projects, and experience.
 - LinkedIn and GitHub profile links, a browser-tab favicon, and a branded social-preview image.
 - A short Unicode compatibility note and a privacy note beside the feedback form.
-- A feedback form prepared for Netlify Forms.
+- A feedback form connected to Formspree.
 
 ## Project structure
 
@@ -47,18 +47,20 @@ This project does not need a framework or build step. Keeping it in vanilla tech
 
 Open `index.html` in a modern browser. No package installation or build command is needed.
 
-For the feedback form, use the deployed Netlify URL. Local file previews cannot submit to Netlify Forms.
+For the feedback form, use the deployed GitHub Pages URL. Local file previews cannot submit to Formspree correctly.
 
-## Deploy free with Netlify
+## Deploy free with GitHub Pages
 
 1. Create a public GitHub repository named `fontnexa`.
 2. Upload the complete project folder. Keep `index.html` at the repository top level and keep the `assets`, `css`, and `js` folders unchanged.
-3. Sign in to [Netlify](https://app.netlify.com) with GitHub. Choose **Add new project** → **Import an existing project** → **GitHub**, then choose `fontnexa`.
-4. Leave the build command empty, set the publish directory to `.`, and choose **Deploy site**.
-5. Open **Forms** in Netlify and enable **Form detection**. Redeploy if Netlify asks you to.
-6. Go to **Forms** → **Submission notifications** → **Add notification** → **Email notification**, then add the receiving email address.
-7. Use the public `netlify.app` link to test the feedback form.
-8. Send the public site URL to the developer to replace the relative social-preview reference with the final absolute URL. This helps LinkedIn and other share crawlers use the branded preview reliably.
+3. In GitHub, open **Settings** → **Pages**.
+4. Under **Build and deployment**, choose **Deploy from a branch**.
+5. Choose the `main` branch and `/ (root)` folder, then select **Save**.
+6. Open the generated `github.io` link to test the generator and feedback form.
+
+## Feedback form setup
+
+The feedback form submits to Formspree and does not require a server in this repository. Formspree handles the form delivery and sends notifications to the configured receiving email address.
 
 ## Talking points for an interview
 
@@ -66,7 +68,7 @@ For the feedback form, use the deployed Netlify URL. Local file previews cannot 
 - The style library is data-driven: transformations and decorators are combined by category to make the large collection maintainable.
 - The Gaming filter toggles a class on the document body, allowing the same layout to use a focused dark colour palette.
 - Results are paginated in the browser to avoid rendering every card at once.
-- The feedback form is static-host friendly and is handled by Netlify after deployment.
+- The feedback form sends a `FormData` request to a Formspree endpoint, allowing it to work from GitHub Pages.
 
 ## Future improvements
 
