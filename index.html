@@ -1,0 +1,298 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Fontnexa is a free Unicode text generator by Arbaz Ali for bios, gaming names, messages and social profiles."
+    />
+    <meta name="theme-color" content="#f4fbf4" />
+    <meta property="og:title" content="Fontnexa — Free Unicode Text Generator" />
+    <meta property="og:description" content="Create copy-ready Unicode styles for bios, gamer tags, messages and profiles." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="assets/fontnexa-social-preview.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <title>Fontnexa — Fancy Text Generator</title>
+    <link rel="icon" href="assets/fontnexa-favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div class="page-glow glow-one" aria-hidden="true"></div>
+    <div class="page-glow glow-two" aria-hidden="true"></div>
+
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="Fontnexa home">
+        <span class="brand-mark">FN</span>
+        <span>Font<span>nexa</span></span>
+      </a>
+      <nav class="site-nav" aria-label="Main navigation">
+        <a href="#generator">Generator</a>
+        <a href="#categories">Categories</a>
+        <a href="#creator">Creator</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#feedback">Feedback</a>
+      </nav>
+      <a class="nav-cta" href="#generator">Try for free <span>↗</span></a>
+    </header>
+
+    <main id="top">
+      <section class="hero" aria-labelledby="hero-title">
+        <p class="eyebrow"><span></span> Free Unicode text styles</p>
+        <h1 id="hero-title">Text styles that<br /><em>feel like yours.</em></h1>
+        <p class="hero-copy">
+          Type a name, caption, status or gamer tag. Fontnexa gives you copy-ready Unicode styles
+          for the places you already use every day.
+        </p>
+        <p class="brand-tagline">Pick a style. <span>Make it yours.</span></p>
+        <div class="hero-pills" aria-label="Fontnexa benefits">
+          <span>396 copy-ready styles</span>
+          <span>13 useful categories</span>
+          <span>No sign-up needed</span>
+        </div>
+      </section>
+
+      <section class="generator-shell" id="generator" aria-labelledby="generator-title">
+        <div class="generator-heading">
+          <div>
+            <p class="section-kicker">Text generator</p>
+            <h2 id="generator-title">Try a style that <span>fits.</span></h2>
+          </div>
+          <p class="character-count" aria-live="polite"><span id="character-count">0</span>/80 characters</p>
+        </div>
+
+        <div class="input-panel">
+          <label for="text-input">Type or paste your text</label>
+          <div class="text-input-wrap">
+            <textarea
+              id="text-input"
+              maxlength="80"
+              rows="2"
+              placeholder="Type your name, bio or message..."
+              aria-describedby="input-hint"
+            ></textarea>
+            <button class="clear-button" id="clear-input" type="button" aria-label="Clear text">Clear</button>
+          </div>
+          <p id="input-hint">Your text stays in your browser. Nothing is saved.</p>
+        </div>
+
+        <div class="controls" id="categories">
+          <div class="filter-group" aria-label="Text style categories" role="group">
+            <button class="filter-button is-active" type="button" data-category="all">All styles</button>
+            <button class="filter-button" type="button" data-category="gaming">Gaming</button>
+            <button class="filter-button" type="button" data-category="instagram">Instagram</button>
+            <button class="filter-button" type="button" data-category="whatsapp">WhatsApp</button>
+            <button class="filter-button" type="button" data-category="religious">Religious</button>
+            <button class="filter-button" type="button" data-category="love">Love</button>
+            <button class="filter-button" type="button" data-category="general">General</button>
+            <button class="filter-button" type="button" data-category="aesthetic">Aesthetic</button>
+            <button class="filter-button" type="button" data-category="bio">Bio</button>
+            <button class="filter-button" type="button" data-category="nickname">Nicknames</button>
+            <button class="filter-button" type="button" data-category="symbols">Symbols</button>
+            <button class="filter-button" type="button" data-category="business">Business</button>
+            <button class="filter-button" type="button" data-category="study">Study</button>
+            <button class="filter-button" type="button" data-category="festive">Festive</button>
+          </div>
+          <label class="search-box" for="style-search">
+            <span aria-hidden="true">⌕</span>
+            <input id="style-search" type="search" placeholder="Search styles" autocomplete="off" />
+          </label>
+        </div>
+        <div class="theme-note" id="theme-note" aria-live="polite">
+          <span>✦</span> Gaming styles use a darker preview for better contrast.
+        </div>
+
+        <div class="results-heading">
+          <p><span id="results-count">0</span> styles available</p>
+          <p class="results-tip">Tap any result to copy</p>
+        </div>
+        <div class="results-grid" id="results-grid" aria-live="polite"></div>
+        <button class="load-more-button" id="load-more" type="button" hidden>Show more styles <span>↓</span></button>
+        <section class="recent-copies" aria-labelledby="recent-copies-title">
+          <div class="recent-heading">
+            <div>
+              <p class="section-kicker">Stored on this device</p>
+              <h3 id="recent-copies-title">Recent copies</h3>
+            </div>
+            <button class="clear-recent-button" id="clear-recent" type="button" hidden>Clear history</button>
+          </div>
+          <p class="recent-empty" id="recent-empty">Copied styles will appear here. They are saved only in this browser.</p>
+          <div class="recent-list" id="recent-list" aria-live="polite"></div>
+        </section>
+        <p class="compatibility-note"><span>ⓘ</span> Unicode characters can look slightly different in some apps or on older devices. Copy a style and check it where you plan to use it.</p>
+      </section>
+
+      <section class="value-strip" aria-label="Why use Fontnexa">
+        <article>
+          <span class="strip-number">01</span>
+          <div>
+            <h3>Use it anywhere</h3>
+            <p>Copy your text into posts, games, messages and profiles.</p>
+          </div>
+        </article>
+        <article>
+          <span class="strip-number">02</span>
+          <div>
+            <h3>Real Unicode text</h3>
+            <p>No image download or extra app is needed.</p>
+          </div>
+        </article>
+        <article>
+          <span class="strip-number">03</span>
+          <div>
+            <h3>Free to use</h3>
+            <p>Browse, copy and use styles without an account.</p>
+          </div>
+        </article>
+      </section>
+
+      <section class="how-it-works" id="how-it-works" aria-labelledby="how-title">
+        <div class="how-intro">
+          <p class="section-kicker">How it works</p>
+          <h2 id="how-title">Three simple<br /><em>steps.</em></h2>
+        </div>
+        <ol class="steps">
+          <li><span>1</span><strong>Write it</strong><p>Enter a name, message or short caption.</p></li>
+          <li><span>2</span><strong>Choose a style</strong><p>Browse categories or search for a specific look.</p></li>
+          <li><span>3</span><strong>Copy it</strong><p>Tap a result and paste it wherever you need it.</p></li>
+        </ol>
+      </section>
+
+      <section class="creator-section" id="creator" aria-labelledby="creator-title">
+        <div class="creator-copy">
+          <p class="section-kicker">About the creator</p>
+          <h2 id="creator-title">A small project,<br /><em>built while learning.</em></h2>
+          <p>
+            I’m <strong>Arbaz Ali</strong>, a second-year BCA student at Amity University in Delhi and an
+            aspiring full stack developer. I built Fontnexa to practise front-end development, Unicode text
+            handling and making a simple tool that people can actually use.
+          </p>
+          <div class="creator-tags" aria-label="Creator roles">
+            <span>BCA · Semester 3</span><span>Aspiring Full Stack Developer</span><span>Creative Problem Solver</span>
+          </div>
+        </div>
+        <div class="creator-card">
+          <div class="portrait-placeholder portrait-photo-frame">
+            <img class="creator-photo" src="assets/arbaz-ali.png" alt="Portrait of Arbaz Ali" />
+          </div>
+          <div class="creator-card-copy">
+            <p class="creator-label">Project stack</p>
+            <h3>Vanilla web</h3>
+            <p class="creator-role">HTML · CSS · JavaScript</p>
+            <span class="creator-divider" aria-hidden="true"></span>
+            <p class="creator-note">Built as a practical front-end project, with responsive layouts, dynamic filters and copy-to-clipboard support.</p>
+            <div class="creator-links" aria-label="Arbaz Ali social profiles">
+              <a href="https://www.linkedin.com/in/arbazaly" target="_blank" rel="noreferrer">LinkedIn <span>↗</span></a>
+              <a href="https://github.com/arbazy999" target="_blank" rel="noreferrer">GitHub <span>↗</span></a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="portfolio-section" id="portfolio" aria-labelledby="portfolio-title">
+        <div class="portfolio-heading">
+          <p class="section-kicker">Portfolio snapshot</p>
+          <h2 id="portfolio-title">Learning by building<br /><em>real projects.</em></h2>
+          <p>
+            I’m building the foundation for a full stack career and looking for an internship or entry-level
+            role where I can keep learning, contribute consistently and solve practical problems.
+          </p>
+        </div>
+        <div class="portfolio-overview">
+          <article class="portfolio-focus-card">
+            <p class="portfolio-card-label">Career focus</p>
+            <h3>Full stack<br />development</h3>
+            <p>Building practical web products with a strong front-end foundation and steadily growing back-end skills.</p>
+            <div class="focus-points"><span>HTML / CSS / JavaScript</span><span>React / Node.js</span><span>Python / SQL</span></div>
+          </article>
+          <article class="portfolio-experience-card">
+            <p class="portfolio-card-label">Real-world experience</p>
+            <h3>3+ years of<br />business experience</h3>
+            <p>Managed product research, listings, orders, customers and daily operations for an independent e-commerce business.</p>
+            <div class="experience-stats"><span><b>100+</b> listings</span><span><b>1,600+</b> orders</span><span><b>4.7★</b> seller rating</span></div>
+          </article>
+        </div>
+        <div class="skills-panel">
+          <p class="portfolio-card-label">Technical toolkit</p>
+          <div class="skills-list" aria-label="Arbaz Ali technical skills">
+            <span>HTML</span><span>CSS</span><span>JavaScript</span><span>React</span><span>Node.js</span><span>Python</span><span>C</span><span>Java · learning</span><span>SQL</span><span>MySQL</span><span>Advanced Excel</span><span>AI fundamentals</span>
+          </div>
+        </div>
+        <div class="project-grid">
+          <article class="project-card"><span class="project-number">01</span><p class="project-type">Python</p><h3>Basic Calculator</h3><p>A command-line calculator built with user input, arithmetic operations, conditions and functions.</p></article>
+          <article class="project-card"><span class="project-number">02</span><p class="project-type">HTML · CSS</p><h3>Zomato Homepage Clone</h3><p>A food-delivery homepage recreated as front-end practice with structured layout and visual styling.</p></article>
+          <article class="project-card"><span class="project-number">03</span><p class="project-type">HTML · CSS</p><h3>YouTube Homepage Clone</h3><p>A video-platform interface recreated to practice page structure, layout and clear content presentation.</p></article>
+          <article class="project-card"><span class="project-number">04</span><p class="project-type">SQL · MySQL</p><h3>Student Database</h3><p>A student-record database project covering table design, data population and essential SQL operations.</p></article>
+        </div>
+      </section>
+
+      <section class="feedback-section" id="feedback" aria-labelledby="feedback-title">
+        <div class="feedback-intro">
+          <p class="section-kicker">Feedback</p>
+          <h2 id="feedback-title">Share an idea<br /><em>or report an issue.</em></h2>
+          <p>Tell me what worked, what was confusing, or what you would like to see next. Your feedback helps improve Fontnexa.</p>
+          <div class="feedback-promise">
+            <span>✓</span>
+            <p>Clear feedback helps me improve the tool faster.</p>
+          </div>
+        </div>
+        <form class="feedback-form" id="feedback-form" name="fontnexa-feedback" method="POST" data-netlify="true" data-netlify-honeypot="bot-field">
+          <input type="hidden" name="form-name" value="fontnexa-feedback" />
+          <p class="honeypot-field" aria-hidden="true">
+            <label>Leave this field empty <input name="bot-field" tabindex="-1" autocomplete="off" /></label>
+          </p>
+          <div class="form-row">
+            <label for="visitor-name">Your name <span>*</span>
+              <input id="visitor-name" name="name" type="text" placeholder="What should we call you?" required />
+            </label>
+            <label for="visitor-phone">Mobile number
+              <input id="visitor-phone" name="phone" type="tel" inputmode="tel" placeholder="Optional" />
+            </label>
+          </div>
+          <div class="form-row">
+            <label for="visitor-email">Email address <span>*</span>
+              <input id="visitor-email" name="email" type="email" placeholder="you@example.com" required />
+            </label>
+            <label for="feedback-topic">I want to share <span>*</span>
+              <select id="feedback-topic" name="topic" required>
+                <option value="">Choose a topic</option>
+                <option>Feature suggestion</option>
+                <option>Problem or bug</option>
+                <option>New category idea</option>
+                <option>Design feedback</option>
+                <option>Something else</option>
+              </select>
+            </label>
+          </div>
+          <label for="visitor-message">Your message <span>*</span>
+            <textarea id="visitor-message" name="message" rows="5" placeholder="Tell us what is on your mind..." required></textarea>
+          </label>
+          <div class="form-bottom">
+            <p>Fields marked <span>*</span> are required.</p>
+            <button class="primary-button" id="feedback-submit" type="submit">Send feedback <span>→</span></button>
+          </div>
+          <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+          <p class="form-privacy">Privacy: your name, email and message are used only to review feedback. Your phone number is optional and is not needed to use Fontnexa.</p>
+        </form>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <a class="brand" href="#top" aria-label="Back to Fontnexa home">
+        <span class="brand-mark">FN</span>
+        <span>Font<span>nexa</span></span>
+      </a>
+      <p>Built by <strong>Arbaz Ali</strong> · BCA Student & Aspiring Full Stack Developer</p>
+      <p>© <span id="current-year"></span> Fontnexa</p>
+    </footer>
+
+    <div class="toast" id="toast" role="status" aria-live="polite">Copied to clipboard</div>
+    <script src="js/app.js"></script>
+  </body>
+</html>
